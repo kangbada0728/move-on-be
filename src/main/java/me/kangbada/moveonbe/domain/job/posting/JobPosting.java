@@ -1,5 +1,6 @@
 package me.kangbada.moveonbe.domain.job.posting;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,6 +20,10 @@ public class JobPosting {
     @JoinColumn(name = "Company")
     private Company company;
 
+    @Embedded
+    private JobPostingTitle title;
 
+    @Embedded
+    private JobPostingLink link;
 
 }

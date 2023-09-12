@@ -16,4 +16,13 @@ class CompanyNameTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("회사명이 비어있으면 안된다.")
+    @Test
+    public void test2() {
+        String 회사명 = "  ";
+        assertThatThrownBy(() -> {
+            new CompanyName(회사명);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }

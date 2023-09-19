@@ -15,7 +15,6 @@ import java.util.Objects;
 public class JobPostingId implements Serializable {
     private static final int ZERO = 1;
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

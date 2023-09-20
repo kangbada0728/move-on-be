@@ -36,6 +36,7 @@ public class AcceptanceTest {
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .extract();
+
     }
 
 

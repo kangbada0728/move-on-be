@@ -6,6 +6,7 @@ import me.kangbada.moveonbe.vo.JobPostingVo;
 import java.net.URI;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import static me.kangbada.moveonbe.domain.job.posting.JobPostingTitle.MAX_TITLE_LENGTH;
 import static org.apache.commons.lang3.StringUtils.isBlank;
@@ -39,10 +40,16 @@ public class NhnJobPostingVoBuilder implements JobPostingVoBuilder {
         if (isBlank(startDateStr) || isBlank(endDateStr)) {
             throw new IllegalArgumentException();
         }
-        LocalDate startDate = LocalDate.parse(startDateStr, DateTimeFormatter.ofPattern(YYYY_MM_DD));
-        LocalDate endDate = LocalDate.parse(endDateStr);
-        this.recruitPeriodStart = startDate;
-        this.recruitPeriodEnd = endDate;
+        try {
+            this.recruitPeriodStart = LocalDate.parse(startDateStr, DateTimeFormatter.ofPattern(YYYY_MM_DD));
+        } catch (DateTimeParseException e) {
+            this.recruitPeriodStart = LocalDate.MIN;
+        }
+        try {
+            this.recruitPeriodEnd = LocalDate.parse(endDateStr, DateTimeFormatter.ofPattern(YYYY_MM_DD));
+        } catch (DateTimeParseException e) {
+            this.recruitPeriodEnd = LocalDate.MAX;
+        }
         return this;
     }
 

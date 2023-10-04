@@ -9,7 +9,7 @@ class JobPostingLinkTest {
 
     @DisplayName("채용공고 링크가 빈값이면 안된다.")
     @Test
-    public void test1() {
+    public void 채용공고_링크가_빈값이면_안된다() {
         assertThatThrownBy(() -> {
             new JobPostingLink(" ");
         }).isInstanceOf(IllegalArgumentException.class);

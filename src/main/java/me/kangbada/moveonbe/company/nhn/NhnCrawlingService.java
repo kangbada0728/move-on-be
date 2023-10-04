@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 public class NhnCrawlingService implements CrawlingService {
     private static final String NHN_RECRUIT_URL = "https://recruit.nhn.com";
     private static final String SEARCH_RECRUITS_BY_CLASS = "/ent/recruitings?type=class";

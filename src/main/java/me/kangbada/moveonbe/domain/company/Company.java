@@ -17,11 +17,8 @@ public class Company {
     @EmbeddedId
     private CompanyId id;
 
-    @Embedded
-    private CompanyName name;
 
-    @Embedded
-    private JobPostings jobPostings;
+
 
 
 }
